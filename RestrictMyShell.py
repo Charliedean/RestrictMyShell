@@ -18,6 +18,7 @@ while True:
     try:
         command = raw_input('%s@PyShell> ' %
                             subprocess.check_output(["whoami"]).rstrip('\n'))
+        command = command.lstrip(' ')
     except (KeyboardInterrupt, EOFError):
         print '\n'
         continue
@@ -38,6 +39,7 @@ while True:
                 if command[0] == 'ls':
                     newCommand += ' --color=always '
             break
+
     if newCommand == '':
         print "You Are Not Allowed To Run This Command!"
     else:
